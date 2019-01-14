@@ -6,13 +6,20 @@
 //  Copyright © 2019 Sniper. All rights reserved.
 //
 
-#import "SNPCenterCpmt.h"
+#import "SNPCenterCpnt.h"
 #import <objc/runtime.h>
+#import "SNPCenterConst.h"
 
-@implementation SNPCenterCpmt
+@interface SNPCenterCpnt ()
+
+@property(nonatomic, strong)NSMutableDictionary *cache;
+
+@end
+
+@implementation SNPCenterCpnt
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone {
-    static SNPCenterCpmt *center;
+    static SNPCenterCpnt *center;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         center = [super allocWithZone:zone];
@@ -22,6 +29,11 @@
 
 + (instancetype)center {
     return [[self alloc] init];
+}
+
+- (id)performTarget:(NSString *)target actionName:(NSString *)action withParams:(NSDictionary *)params callbackHandler:(id<SNPCallbackDelegate>)callbackhandler {
+    [self.cache setObject:callbackhandler forKey:cpmtInvokeKey];
+    return [self performTarget:target actionName:action withParams:params];
 }
 
 - (id)performTarget:(NSString *)target actionName:(NSString *)action withParams:(NSDictionary * _Nullable )params {
@@ -103,6 +115,18 @@
     _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
         return [target performSelector:selector withObject:params];
     _Pragma("clang diagnostic pop")
+}
+
+- (id<SNPCallbackDelegate>)callbackHandler {
+    return [self.cache objectForKey:cpmtInvokeKey];
+}
+
+#pragma mark -
+- (NSMutableDictionary *)cache {
+    if (!_cache) {
+        _cache = [NSMutableDictionary dictionary];
+    }
+    return _cache;
 }
 
 @end

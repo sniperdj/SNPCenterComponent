@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import "SNPPerson.h"
-#import "SNPCenterComponent/SNPCenterCpmt.h"
+#import "SNPCenterComponent/SNPCenterCpnt.h"
+#import "SNPCenterComponent/SNPCenterCpnt+SNPInvocation.h"
 
 @interface ViewController ()
 
@@ -23,10 +24,13 @@
 //    [person eat];
 //    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"eat" withParams:@{@"a":@"1"}];
 //    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"say" withParams:@{@"a":@"1"}];
-    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"sleepTime" withParams:@{@"a":@"1"}];
-    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"getStr" withParams:@{@"a":@"1"}];
+    [[SNPCenterCpnt center] performTarget:@"SNPPerson" actionName:@"sleepTime" withParams:@{@"a":@"1"}];
+    [[SNPCenterCpnt center] performTarget:@"SNPPerson" actionName:@"getStr" withParams:@{@"a":@"1"}];
 //    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"eat" withParams:nil];
-    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"saySomething" withParams:nil];
+//    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"saySomething" withParams:nil];
+    [[SNPCenterCpnt center] nativeInvokeWithName:@"SNPPerson.saySomething" params:nil callback:^(NSDictionary * _Nonnull cbDict) {
+        NSLog(@"%@", cbDict);
+    }];
 }
 
 

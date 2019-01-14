@@ -6,13 +6,13 @@
 //  Copyright © 2019 Sniper. All rights reserved.
 //
 
-#import "SNPCenterCpmt.h"
+#import "SNPCenterCpnt.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SNPCenterCpmt (SNPInvocation)
+@interface SNPCenterCpnt (SNPInvocation)
 
-- (void)invokeWithName:(NSString *)name params:(NSDictionary *)params;
+- (void)nativeInvokeWithName:(NSString *)name params:(NSDictionary *)params callback:(void(^)(NSDictionary *cbDict))callbackBlock;
 
 @end
 

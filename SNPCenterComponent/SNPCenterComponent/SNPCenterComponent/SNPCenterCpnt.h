@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "SNPCallbackDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SNPCenterCpmt : NSObject
+@interface SNPCenterCpnt : NSObject
 
 + (instancetype)center;
 
+- (id<SNPCallbackDelegate>)callbackHandler;
+
 - (id)performTarget:(NSString *)target actionName:(NSString *)action withParams:(NSDictionary * _Nullable )params;
+/** 不对外开放 */
+- (id)performTarget:(NSString *)target actionName:(NSString *)action withParams:(NSDictionary * _Nullable )params callbackHandler:(id<SNPCallbackDelegate>)callbackhandler;
 
 @end
 
