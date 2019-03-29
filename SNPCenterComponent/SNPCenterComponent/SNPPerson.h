@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)getStr:(NSDictionary *)str;
 
-- (NSString *)saySomething;
+- (NSString *)saySomething:(NSDictionary *)dict;
 
 @end
 

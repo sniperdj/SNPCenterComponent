@@ -32,7 +32,6 @@
 }
 
 - (id)performTarget:(NSString *)target actionName:(NSString *)action withParams:(NSDictionary *)params callbackHandler:(id<SNPCallbackDelegate>)callbackhandler {
-    [self.cache setObject:callbackhandler forKey:cpmtInvokeKey];
     return [self performTarget:target actionName:action withParams:params];
 }
 
@@ -115,10 +114,6 @@
     _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
         return [target performSelector:selector withObject:params];
     _Pragma("clang diagnostic pop")
-}
-
-- (id<SNPCallbackDelegate>)callbackHandler {
-    return [self.cache objectForKey:cpmtInvokeKey];
 }
 
 #pragma mark -

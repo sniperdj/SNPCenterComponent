@@ -24,11 +24,16 @@
     NSString *target = [seperateClassMethodList firstObject];
     NSString *action = [seperateClassMethodList lastObject];
     
+    if (!params) {
+        params = [NSDictionary dictionary];
+    }
     if (!callbackBlock) {
         [[SNPCenterCpnt center] performTarget:target actionName:action withParams:params];
     } else {
         SNPCpntNativeInvoke *callbackInvoke = [SNPCpntNativeInvoke nativeInvokeWithCallbackBlock:callbackBlock];
-        [[SNPCenterCpnt center] performTarget:target actionName:action withParams:params callbackHandler:callbackInvoke];
+        NSMutableDictionary *ourParams = [params mutableCopy];
+        [ourParams setObject:callbackInvoke forKey:cpmtInvokeKey];
+        [[SNPCenterCpnt center] performTarget:target actionName:action withParams:ourParams callbackHandler:callbackInvoke];
     }
 }
 

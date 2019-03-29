@@ -12,7 +12,10 @@
 @implementation SNPCenterCpnt (SNPCallback)
 
 - (void)callbackToDict:(NSDictionary *)dict withCode:(NSString *)code msg:(NSString *)msg data:(NSDictionary *)data {
-    id<SNPCallbackDelegate> callbackHandler = [self callbackHandler];
+    if (!dict) {
+        NSLog(@"错误:callbacker不能为空!!");
+    }
+    id<SNPCallbackDelegate> callbackHandler = [dict objectForKey:cpmtInvokeKey];
     NSMutableDictionary *callbackDict = [NSMutableDictionary dictionary];
     callbackDict[cpmtCodeKey] = code;
     callbackDict[cpmtMsgKey] = msg;

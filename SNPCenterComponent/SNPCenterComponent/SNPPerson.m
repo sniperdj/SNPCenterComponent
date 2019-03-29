@@ -29,10 +29,14 @@
     return [str objectForKey:@"a"];
 }
 
-- (NSString *)saySomething {
+- (NSString *)saySomething:(NSDictionary *)dict {
     NSLog(@"something");
-    [[SNPCenterCpnt center] callbackToDict:nil withCode:@"111" msg:@"msgmsg" data:@{@"sss":@"fff"}];
+    [[SNPCenterCpnt center] callbackToDict:dict withCode:@"111" msg:@"msgmsg" data:@{@"sss":@"fff"}];
     return @"something";
+}
+
+- (void)dealloc {
+    NSLog(@"dealloc %@", self);
 }
 
 @end

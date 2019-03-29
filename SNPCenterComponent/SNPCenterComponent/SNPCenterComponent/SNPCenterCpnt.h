@@ -16,11 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)center;
 
-- (id<SNPCallbackDelegate>)callbackHandler;
-
-- (id)performTarget:(NSString *)target actionName:(NSString *)action withParams:(NSDictionary * _Nullable )params;
 /** 不对外开放 */
+- (id)performTarget:(NSString *)target actionName:(NSString *)action withParams:(NSDictionary * _Nullable )params;
+
 - (id)performTarget:(NSString *)target actionName:(NSString *)action withParams:(NSDictionary * _Nullable )params callbackHandler:(id<SNPCallbackDelegate>)callbackhandler;
+
+- (void)callbackToDict:(NSDictionary *)dict withCode:(NSString *)code msg:(NSString *)msg data:(NSDictionary *)data;
 
 @end
 
