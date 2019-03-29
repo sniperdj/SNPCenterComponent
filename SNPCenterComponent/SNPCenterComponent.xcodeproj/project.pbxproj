@@ -20,6 +20,7 @@
 		7DA49EBD21EB671D00F8FBC1 /* SNPCenterCpnt+SNPCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA49EBC21EB671D00F8FBC1 /* SNPCenterCpnt+SNPCallback.m */; };
 		7DA49EC021ECC90300F8FBC1 /* SNPCenterConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA49EBF21ECC90300F8FBC1 /* SNPCenterConst.m */; };
 		7DA49ED421ECD92F00F8FBC1 /* SNPCpntNativeInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA49ED321ECD92F00F8FBC1 /* SNPCpntNativeInvoke.m */; };
+		7DA8E25A224E790300050474 /* NSObject+SNPInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA8E259224E790300050474 /* NSObject+SNPInvoke.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		7DA49EC921ECCF0B00F8FBC1 /* SNPCallbackDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNPCallbackDelegate.h; sourceTree = "<group>"; };
 		7DA49ED221ECD92F00F8FBC1 /* SNPCpntNativeInvoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNPCpntNativeInvoke.h; sourceTree = "<group>"; };
 		7DA49ED321ECD92F00F8FBC1 /* SNPCpntNativeInvoke.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNPCpntNativeInvoke.m; sourceTree = "<group>"; };
+		7DA8E258224E790300050474 /* NSObject+SNPInvoke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SNPInvoke.h"; sourceTree = "<group>"; };
+		7DA8E259224E790300050474 /* NSObject+SNPInvoke.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SNPInvoke.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +163,8 @@
 				7DA49EB321EB362400F8FBC1 /* SNPCenterCpnt.m */,
 				7DA49EB821EB670D00F8FBC1 /* SNPCenterCpnt+SNPInvocation.h */,
 				7DA49EB921EB670D00F8FBC1 /* SNPCenterCpnt+SNPInvocation.m */,
+				7DA8E258224E790300050474 /* NSObject+SNPInvoke.h */,
+				7DA8E259224E790300050474 /* NSObject+SNPInvoke.m */,
 				7DA49EBB21EB671D00F8FBC1 /* SNPCenterCpnt+SNPCallback.h */,
 				7DA49EBC21EB671D00F8FBC1 /* SNPCenterCpnt+SNPCallback.m */,
 				7DA49EBE21ECC90300F8FBC1 /* SNPCenterConst.h */,
@@ -320,6 +325,7 @@
 				7DA49EB721EB397E00F8FBC1 /* SNPPerson.m in Sources */,
 				7DA49EB421EB362400F8FBC1 /* SNPCenterCpnt.m in Sources */,
 				7DA49E8421EB336000F8FBC1 /* ViewController.m in Sources */,
+				7DA8E25A224E790300050474 /* NSObject+SNPInvoke.m in Sources */,
 				7DA49EC021ECC90300F8FBC1 /* SNPCenterConst.m in Sources */,
 				7DA49E8F21EB336300F8FBC1 /* main.m in Sources */,
 				7DA49EBA21EB670D00F8FBC1 /* SNPCenterCpnt+SNPInvocation.m in Sources */,

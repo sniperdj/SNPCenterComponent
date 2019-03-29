@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "SNPPerson.h"
 #import "SNPCenterComponent/SNPCenterCpnt.h"
-#import "SNPCenterComponent/SNPCenterCpnt+SNPInvocation.h"
+#import "NSObject+SNPInvoke.h"
 
 @interface ViewController ()
 
@@ -28,7 +28,7 @@
     [[SNPCenterCpnt center] performTarget:@"SNPPerson" actionName:@"getStr" withParams:@{@"a":@"1"}];
 //    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"eat" withParams:nil];
 //    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"saySomething" withParams:nil];
-    [[SNPCenterCpnt center] nativeInvokeWithName:@"SNPPerson.saySomething" params:nil callback:^(NSDictionary * _Nonnull cbDict) {
+    [self nativeInvokeWithName:@"SNPPerson.saySomething" params:nil callback:^(NSDictionary * _Nonnull cbDict) {
         NSLog(@"%@", cbDict);
     }];
 }
