@@ -65,6 +65,19 @@
     return [self sendMsgToTarget:targetObj withSelector:selector withParams:params];
 }
 
+- (void)callbackToDict:(NSDictionary *)dict withCode:(NSString *)code msg:(NSString *)msg data:(NSDictionary *)data {
+    if (!dict) {
+        NSLog(@"错误:callbacker不能为空!!");
+    }
+    id<SNPCallbackDelegate> callbackHandler = [dict objectForKey:cpmtInvokeKey];
+    NSMutableDictionary *callbackDict = [NSMutableDictionary dictionary];
+    callbackDict[cpmtCodeKey] = code;
+    callbackDict[cpmtMsgKey] = msg;
+    callbackDict[cpmtDataKey] = data;
+    [callbackHandler callbackWithDict:callbackDict];
+}
+
+#pragma mark - Private
 - (id)sendMsgToTarget:(NSObject *)target withSelector:(SEL)selector withParams:(NSDictionary *)params {
     
     NSMethodSignature *methodSig = [target methodSignatureForSelector:selector];

@@ -7,7 +7,7 @@
 //
 
 #import "SNPPerson.h"
-#import "SNPCenterComponent/SNPCenterCpnt+SNPCallback.h"
+#import "SNPCenterComponent/NSDictionary+SNPCallback.h"
 
 @implementation SNPPerson
 
@@ -31,7 +31,7 @@
 
 - (NSString *)saySomething:(NSDictionary *)dict {
     NSLog(@"something");
-    [[SNPCenterCpnt center] callbackToDict:dict withCode:@"111" msg:@"msgmsg" data:@{@"sss":@"fff"}];
+    [dict callbackToDict:dict code:@"111" msg:@"msgmsg" data:@{@"sss":@"fff"}];
     return @"something";
 }
 
