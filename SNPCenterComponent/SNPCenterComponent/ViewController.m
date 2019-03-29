@@ -19,17 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-//    SNPPerson *person = [[SNPPerson alloc] init];
-//    [person eat];
-//    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"eat" withParams:@{@"a":@"1"}];
-//    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"say" withParams:@{@"a":@"1"}];
-    [[SNPCenterCpnt center] performTarget:@"SNPPerson" actionName:@"sleepTime" withParams:@{@"a":@"1"}];
-    [[SNPCenterCpnt center] performTarget:@"SNPPerson" actionName:@"getStr" withParams:@{@"a":@"1"}];
-//    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"eat" withParams:nil];
-//    [[SNPCenterCpmt center] performTarget:@"SNPPerson" actionName:@"saySomething" withParams:nil];
-    [self nativeInvokeWithName:@"SNPPerson.saySomething" params:nil callback:^(NSDictionary * _Nonnull cbDict) {
-        NSLog(@"%@", cbDict);
+    
+
+    [self nativeInvokeWithName:@"SNPPerson.saySomething" params:nil callback:^(NSString * _Nonnull code, NSString * _Nonnull msg, NSDictionary * _Nonnull data) {
+        NSLog(@"code : %@", code);
+        NSLog(@"msg : %@", msg);
+        NSLog(@"data : %@", data);
     }];
 }
 

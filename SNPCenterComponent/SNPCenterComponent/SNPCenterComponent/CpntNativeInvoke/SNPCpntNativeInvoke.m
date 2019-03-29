@@ -7,22 +7,23 @@
 //
 
 #import "SNPCpntNativeInvoke.h"
+#import "SNPCenterConst.h"
 
 @interface SNPCpntNativeInvoke ()
 
 /** callbackBlock */
-@property (nonatomic, copy)void(^callbackBlock)(NSDictionary *cbDict);
+@property (nonatomic, copy)void(^callbackBlock)(NSString *code, NSString *msg, NSDictionary *data);
 
 @end
 
 @implementation SNPCpntNativeInvoke
 
-+ (instancetype)nativeInvokeWithCallbackBlock:(void (^)(NSDictionary * _Nonnull))callbackBlock {
++ (instancetype)nativeInvokeWithCallbackBlock:(void(^)(NSString *code, NSString *msg, NSDictionary *data))callbackBlock {
     SNPCpntNativeInvoke *nativeInvoke = [[self alloc] init];
     return [nativeInvoke initWithCallback:callbackBlock];
 }
 
-- (instancetype)initWithCallback:(void (^)(NSDictionary * _Nonnull))callbackBlock {
+- (instancetype)initWithCallback:(void(^)(NSString *code, NSString *msg, NSDictionary *data))callbackBlock {
     self = [super init];
     if (self) {
         self.callbackBlock = callbackBlock;
@@ -32,7 +33,10 @@
 
 - (void)callbackWithDict:(NSDictionary *)dict {
     if (self.callbackBlock) {
-        self.callbackBlock(dict);
+        NSString *code = dict[cpmtCodeKey];
+        NSString *msg = dict[cpmtMsgKey];
+        NSDictionary *data = dict[cpmtDataKey];
+        self.callbackBlock(code, msg, data);
     }
 }
 

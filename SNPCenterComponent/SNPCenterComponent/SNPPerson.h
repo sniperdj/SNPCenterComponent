@@ -12,14 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SNPPerson : NSObject
 
-- (void)eat;
-
-- (void)say:(NSString *)str;
-
-- (NSInteger)sleepTime:(NSDictionary *)dict;
-
-- (NSString *)getStr:(NSDictionary *)str;
-
 - (NSString *)saySomething:(NSDictionary *)dict;
 
 @end

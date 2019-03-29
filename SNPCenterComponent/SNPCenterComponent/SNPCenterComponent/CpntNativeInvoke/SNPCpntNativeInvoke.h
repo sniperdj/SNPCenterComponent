@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SNPCpntNativeInvoke : NSObject<SNPCallbackDelegate>
 
-+ (instancetype)nativeInvokeWithCallbackBlock:(void(^)(NSDictionary *cbDict))callbackBlock;
++ (instancetype)nativeInvokeWithCallbackBlock:(void(^)(NSString *code, NSString *msg, NSDictionary *data))callbackBlock;
 
 @end
 

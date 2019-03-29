@@ -13,7 +13,7 @@
 
 @implementation NSObject (SNPInvoke)
 
-- (void)nativeInvokeWithName:(NSString *)name params:(NSDictionary *)params callback:(void(^)(NSDictionary *cbDict))callbackBlock {
+- (void)nativeInvokeWithName:(NSString *)name params:(NSDictionary * _Nullable)params callback:(void(^)(NSString *code, NSString *msg, NSDictionary *data))callbackBlock {
     NSArray *seperateClassMethodList = [name componentsSeparatedByString:@"."];
     if (seperateClassMethodList == nil ||
         seperateClassMethodList.count != 2) {

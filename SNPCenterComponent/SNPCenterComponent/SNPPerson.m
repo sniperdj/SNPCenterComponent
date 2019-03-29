@@ -11,24 +11,6 @@
 
 @implementation SNPPerson
 
-- (void)eat {
-    NSLog(@"eating");
-}
-
-- (void)say:(NSString *)str {
-    NSLog(@"%@", str);
-}
-
-- (NSInteger)sleepTime:(NSDictionary *)dict {
-    NSLog(@"sleetTime return 8");
-    return 8;
-}
-
-- (NSString *)getStr:(NSDictionary *)str {
-    NSLog(@"get str : %@", [str objectForKey:@"a"]);
-    return [str objectForKey:@"a"];
-}
-
 - (NSString *)saySomething:(NSDictionary *)dict {
     NSLog(@"something");
     [dict callbackToDict:dict code:@"111" msg:@"msgmsg" data:@{@"sss":@"fff"}];

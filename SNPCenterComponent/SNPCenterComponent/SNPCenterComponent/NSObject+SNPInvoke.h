@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (SNPInvoke)
 
-- (void)nativeInvokeWithName:(NSString *)name params:(NSDictionary *)params callback:(void(^)(NSDictionary *cbDict))callbackBlock;
+- (void)nativeInvokeWithName:(NSString *)name params:(NSDictionary * _Nullable)params callback:(void(^)(NSString *code, NSString *msg, NSDictionary *data))callbackBlock;
 
 @end
 
